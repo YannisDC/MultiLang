@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MultiLang</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="multilang.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-light nav-main">
+      <span class="navbar-brand mb-0 h1">MultiLang</span>
+      <ul id="language-options" class="nav justify-content-end">
+        <li class="nav-item">
+          <div id="add-option" class="nav-link active">
+            <img src="./img/add.png" style="height: 20px;" alt="">
+          </div>
+        </li>
+        <div class="select"></div>
+      </ul>
+    </nav>
+    <div class="container">
+      <div class="row" style="margin-bottom:80px;">
+        <div class="col"></div>
+        <div class="col-6">
+          <form>
+            <div class="form-group">
+              <div style="padding-bottom:10px;">
+                <img src="./img/country-flags/png/united-kingdom.png" style="height: 20px;" alt="">
+                <span style="margin-left:10px;">en</span>
+              </div>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Translate</button>
+          </form>
+        </div>
+        <div class="col"></div>
+      </div>
+      <section id="lines">
+        <span id="sel"></span>
+      </section>
+      
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <span>Icons made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <a title="Flaticon" href="http://www.flaticon.com">www.flaticon.com</a> </span>
+      </div>
+    </footer>
+
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="multilang.js"></script>
+  </body>
+</html>
