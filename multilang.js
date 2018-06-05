@@ -28,6 +28,27 @@ $( document ).ready(function() {
                     },{
                       "code":"ro",
                       "country":"romania"
+                    },{
+                      "code":"ca",
+                      "country":"catalonia"
+                    },{
+                      "code":"sq",
+                      "country":"albania"
+                    },{
+                      "code":"ru",
+                      "country":"russia"
+                    },{
+                      "code":"hu",
+                      "country":"hungary"
+                    },{
+                      "code":"ja",
+                      "country":"japan"
+                    },{
+                      "code":"ht",
+                      "country":"haiti"
+                    },{
+                      "code":"bg",
+                      "country":"bulgaria"
                     }];
 
 
