@@ -49,6 +49,9 @@ $( document ).ready(function() {
                     },{
                       "code":"bg",
                       "country":"bulgaria"
+                    },{
+                      "code":"vi",
+                      "country":"vietnam"
                     }];
 
 
@@ -111,18 +114,6 @@ $( document ).ready(function() {
     });
   }
 
-  function getSelectionText() {
-      var text = "";
-
-      if (window.getSelection) {
-          text = window.getSelection().toString();
-      } else if (document.selection && document.selection.type != "Control") {
-          text = document.selection.createRange().text;
-      }
-
-      return text;
-  }
-
   function addRequery() {
     $("#third-query").html($("#second-query").html());
     if ($("#third-query").html()) {
@@ -171,16 +162,40 @@ $( document ).ready(function() {
     var newSentence = partOne + '<mark class='+topology+'>' + partTwo + '</mark>' + partThree;
     $(e.target).html(newSentence);
 
+    addAllTooltips();
+    $('.topology').hide("slow");
+    removeAllClickListeners();
+  }
+
+  function getSelectionText() {
+      var text = "";
+
+      if (window.getSelection) {
+          text = window.getSelection().toString();
+      } else if (document.selection && document.selection.type != "Control") {
+          text = document.selection.createRange().text;
+      }
+
+      return text;
+  }
+
+  function addAllTooltips() {
     $('.subj').tooltip({title: "Subject"});
     $('.verb').tooltip({title: "Verb"});
     $('.obj').tooltip({title: "Object"});
     $('.adj').tooltip({title: "Adjective"});
+  }
 
-    $('.topology').hide("slow");
+  function removeAllClickListeners() {
+    $('#top-subj').off("click");
+    $('#top-verb').off("click");
+    $('#top-obj').off("click");
+    $('#top-adj').off("click");
   }
 
   document.onmouseup = document.onkeyup = function(e) {
     if (typeof e !== "undefined" && e.target.classList.contains("translation")) {
+        removeAllClickListeners();
         var text = getSelectionText();
         // var sentence = $(e.target).data("sentence");
         var sentence = $(e.target).html();
@@ -193,21 +208,19 @@ $( document ).ready(function() {
         if (text.length != 0) {
           $('.topology').show("slow");
 
-          // FIXME: click listener issue
-
-          $('#top-subj').click(function() {
+          $('#top-subj').on("click", function() {
             mark(e, sentence, text, "subj");
           });
 
-          $('#top-verb').click(function() {
+          $('#top-verb').on("click", function() {
             mark(e, sentence, text, "verb");
           });
 
-          $('#top-obj').click(function() {
+          $('#top-obj').on("click", function() {
             mark(e, sentence, text, "obj");
           });
 
-          $('#top-adj').click(function() {
+          $('#top-adj').on("click", function() {
             mark(e, sentence, text, "adj");
           });
         }
