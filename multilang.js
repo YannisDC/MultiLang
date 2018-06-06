@@ -69,7 +69,7 @@ $( document ).ready(function() {
     }
   });
 
-
+  $('.topology').hide();
 
   function addSelectable(language) {
     var selectable = '<div id="option-'+ language["code"] +'" class="option"><img src="./img/country-flags/png/'+ language["country"] +'.png" style="height: 20px;" alt=""><span style="margin-left:10px;">'+ language["code"] +'</span></div>';
@@ -106,6 +106,7 @@ $( document ).ready(function() {
 
     $.get(url, function(data, status) {
       $("#translation-"+language["code"]).html(data[0][0][0]);
+      $("#translation-"+language["code"]).data("sentence", data[0][0][0]);
     });
   }
 
@@ -121,10 +122,54 @@ $( document ).ready(function() {
       return text;
   }
 
-  // document.onmouseup = document.onkeyup = function(e) {
-  //   if (typeof e !== "undefined" && e.target.classList.contains("translation")) {
-  //       var text = getSelectionText();
-  //       console.log($(e.target).text());
-  //   }
-  // };
+  function mark(e, sentence, text, topology) {
+    var partOne = sentence.substring(0, sentence.indexOf(text));
+    var partTwo = sentence.substring(sentence.indexOf(text), sentence.indexOf(text) + text.length);
+    var partThree = sentence.substring(sentence.indexOf(text) + text.length, sentence.length);
+
+    var newSentence = partOne + '<mark class='+topology+'>' + partTwo + '</mark>' + partThree;
+    $(e.target).html(newSentence);
+
+    $('.subj').tooltip({title: "Subject"});
+    $('.verb').tooltip({title: "Verb"});
+    $('.obj').tooltip({title: "Object"});
+    $('.adj').tooltip({title: "Adjective"});
+
+    $('.topology').hide("slow");
+  }
+
+  document.onmouseup = document.onkeyup = function(e) {
+    if (typeof e !== "undefined" && e.target.classList.contains("translation")) {
+        var text = getSelectionText();
+        // var sentence = $(e.target).data("sentence");
+        var sentence = $(e.target).html();
+
+        console.log(text);
+        console.log(sentence);
+        console.log(sentence.indexOf(text));
+        console.log(sentence.indexOf(text) + text.length);
+
+        if (text.length != 0) {
+          $('.topology').show("slow");
+
+          // FIXME: click listener issue
+
+          $('#top-subj').click(function() {
+            mark(e, sentence, text, "subj");
+          });
+
+          $('#top-verb').click(function() {
+            mark(e, sentence, text, "verb");
+          });
+
+          $('#top-obj').click(function() {
+            mark(e, sentence, text, "obj");
+          });
+
+          $('#top-adj').click(function() {
+            mark(e, sentence, text, "adj");
+          });
+        }
+    }
+  };
 });

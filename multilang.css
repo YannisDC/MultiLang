@@ -1,3 +1,12 @@
+:root {
+  --mark-adj-color: #CEF3FD;
+  --mark-obj-color: #FDD0B0;
+  --mark-subj-color: #FDCEF4;
+  --mark-verb-color: #BDFDB0;
+  --mark-indicate-color: #9B9B9B;
+  --mark-line-color: #EBEBEB;
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -5,6 +14,44 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+}
+
+
+/* Markers */
+.adj, #top-adj {
+  background-color: var(--mark-adj-color);
+}
+
+.obj, #top-obj {
+  background-color: var(--mark-obj-color);
+}
+
+.subj, #top-subj {
+  background-color: var(--mark-subj-color);
+}
+
+.verb, #top-verb {
+  background-color: var(--mark-verb-color);
+}
+
+.tooltip {
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.tooltip-inner {
+  background-color: var(--mark-indicate-color);
+  border-radius: 6px;
+  padding: 5px 10px;
+  opacity: 1;
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=top] .arrow::before, .tooltip.bs-tooltip-top .arrow::before {
+    margin-left: -3px;
+    content: "";
+    border-width: 5px 5px 0;
+    border-top-color: var(--mark-indicate-color);
+    margin-bottom: 5px;
 }
 
 .nav-main {
@@ -49,4 +96,25 @@ body {
   /* Set the fixed height of the footer here */
   height: 30px;
   line-height: 30px; /* Vertically center the text there */
+}
+
+
+.topology {
+  position: absolute;
+  width: 100vw;
+  height: 60px;
+  background-color: white;
+  bottom: 0px;
+  z-index: 10;
+  transition: bottom 0.33s linear;
+  /* border-top-color: var(--mark-indicate-color); */
+  border-top: 1px solid var(--mark-line-color);
+}
+
+.topology > div {
+  height: 36px;
+  display: inline-block;
+  padding: 6px 10px;
+  margin: 12px 0 12px 10px;
+  border-radius: 6px;
 }
