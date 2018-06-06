@@ -118,3 +118,27 @@ body {
   margin: 12px 0 12px 10px;
   border-radius: 6px;
 }
+
+
+/* Requery */
+.query-text {
+  white-space: nowrap;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  font-size:20px;
+  color: var(--mark-indicate-color);
+}
+
+.requery-row {
+  margin-bottom: 15px;
+}
+
+.requery-icon {
+  display: inline-block;
+}
+
+.requery-img {
+  height: 20px;
+}

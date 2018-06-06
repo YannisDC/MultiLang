@@ -67,6 +67,7 @@ $( document ).ready(function() {
     for (var i = 0; i < selectedLanguages.length; i++) {
       getTranslation(selectedLanguages[i]);
     }
+    addRequery();
   });
 
   $('.topology').hide();
@@ -121,6 +122,46 @@ $( document ).ready(function() {
 
       return text;
   }
+
+  function addRequery() {
+    $("#third-query").html($("#second-query").html());
+    if ($("#third-query").html()) {
+      $("#third-requery").show();
+    }
+    $("#second-query").html($("#first-query").html());
+    if ($("#second-query").html()) {
+      $("#second-requery").show();
+    }
+    $("#first-query").html($("textarea").val());
+    if ($("#first-query").html()) {
+      $("#first-requery").show();
+    }
+  }
+
+  $("#first-requery").hide();
+  $("#second-requery").hide();
+  $("#third-requery").hide();
+
+  $('#first-requery').click(function() {
+    $("textarea").val($("#first-query").html());
+    for (var i = 0; i < selectedLanguages.length; i++) {
+      getTranslation(selectedLanguages[i]);
+    }
+  });
+
+  $('#second-requery').click(function() {
+    $("textarea").val($("#second-query").html());
+    for (var i = 0; i < selectedLanguages.length; i++) {
+      getTranslation(selectedLanguages[i]);
+    }
+  });
+
+  $('#third-requery').click(function() {
+    $("textarea").val($("#third-query").html());
+    for (var i = 0; i < selectedLanguages.length; i++) {
+      getTranslation(selectedLanguages[i]);
+    }
+  });
 
   function mark(e, sentence, text, topology) {
     var partOne = sentence.substring(0, sentence.indexOf(text));
