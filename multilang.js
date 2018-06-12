@@ -52,6 +52,51 @@ $( document ).ready(function() {
                     },{
                       "code":"vi",
                       "country":"vietnam"
+                    },{
+                      "code":"sv",
+                      "country":"sweden"
+                    },{
+                      "code":"no",
+                      "country":"norway"
+                    },{
+                      "code":"en",
+                      "country":"united-kingdom"
+                    },{
+                      "code":"mk",
+                      "country":"republic-of-macedonia"
+                    },{
+                      "code":"pl",
+                      "country":"republic-of-poland"
+                    },{
+                      "code":"cs",
+                      "country":"czech"
+                    },{
+                      "code":"uk",
+                      "country":"ukraine"
+                    },{
+                      "code":"hr",
+                      "country":"croatia"
+                    },{
+                      "code":"sk",
+                      "country":"slovakia"
+                    },{
+                      "code":"sl",
+                      "country":"slovenia"
+                    },{
+                      "code":"be",
+                      "country":"belarus"
+                    },{
+                      "code":"el",
+                      "country":"greece"
+                    },{
+                      "code":"tr",
+                      "country":"turkey"
+                    },{
+                      "code":"sr",
+                      "country":"serbia"
+                    },{
+                      "code":"fi",
+                      "country":"finland"
                     }];
 
 
@@ -99,10 +144,29 @@ $( document ).ready(function() {
 
     selectedLanguages.push(language);
 
-    var line = '<div class="row" style="margin-top:20px;"><div class="col"><img src="./img/country-flags/png/'+
+    var line = '<div class="row language-row" style="margin-top:20px;"><div class="col"><img src="./img/country-flags/png/'+
     language["country"]+
-    '.png" style="height: 40px;" alt=""></div><div id="translation-'+ language["code"] +'" class="col-11 translation" style="font-size:25px;"></div></div>';
+    '.png" style="height: 40px;" alt=""></div><div id="translation-'+ language["code"] +'" class="col-11 translation" style="font-size:25px;"></div><div class="col"></div>';
     lines.append(line);
+
+    // <img class="edit-text" src="./img/pencil.png" style="height: 20px;" alt=""></div>
+    // $(".language-row").hover(function(){
+    //   $( this ).find(".edit-text").css("visibility", "visible");
+    //   $( this ).find(".edit-text").on("click", function() {
+    //     var value = $( this ).parent().prev().attr('contentEditable');
+    //
+    //     if (value == 'false') {
+    //         $( this ).parent().prev().attr('contentEditable','true');
+    //     }
+    //     else {
+    //         $( this ).parent().prev().attr('contentEditable','false');
+    //     }
+    //   });
+    // }, function () {
+    //   $( this ).find(".edit-text").css("visibility", "hidden");
+    //   $( this ).find(".edit-text").off("click");
+    // });
+
   }
 
   function getTranslation(language) {
@@ -192,6 +256,103 @@ $( document ).ready(function() {
     $('#top-obj').off("click");
     $('#top-adj').off("click");
   }
+
+  function addLanguageFamily(languages) {
+    for (var i = 0; i < languages.length; i++) {
+      addLanguageOption(languages[i]);
+      $('#option-'+languages[i]["code"]).remove();
+    }
+  }
+
+  $('#romance').click(function() {
+
+    var romanceLanguages = [ {
+                        "code":"pt",
+                        "country":"portugal"
+                      },{
+                        "code":"fr",
+                        "country":"france"
+                      },{
+                        "code":"it",
+                        "country":"italy"
+                      },{
+                        "code":"es",
+                        "country":"spain"
+                      },{
+                        "code":"ro",
+                        "country":"romania"
+                      },{
+                        "code":"ca",
+                        "country":"catalonia"
+                      }];
+
+    addLanguageFamily(romanceLanguages);
+  });
+
+  $('#germanic').click(function() {
+
+    var romanceLanguages = [ {
+                        "code":"nl",
+                        "country": "belgium"
+                      },{
+                        "code":"de",
+                        "country":"germany"
+                      },{
+                        "code":"is",
+                        "country":"iceland"
+                      },{
+                        "code":"da",
+                        "country":"denmark"
+                      },{
+                        "code":"sv",
+                        "country":"sweden"
+                      },{
+                        "code":"no",
+                        "country":"norway"
+                      },{
+                        "code":"en",
+                        "country":"united-kingdom"
+                      }];
+
+    addLanguageFamily(romanceLanguages);
+  });
+
+  $('#slavic').click(function() {
+
+    var romanceLanguages = [ {
+      "code":"ru",
+      "country":"russia"
+    },{
+      "code":"pl",
+      "country":"republic-of-poland"
+    },{
+      "code":"cs",
+      "country":"czech"
+    },{
+      "code":"uk",
+      "country":"ukraine"
+    },{
+      "code":"bg",
+      "country":"bulgaria"
+    },{
+      "code":"hr",
+      "country":"croatia"
+    },{
+      "code":"sk",
+      "country":"slovakia"
+    },{
+      "code":"sl",
+      "country":"slovenia"
+    },{
+      "code":"be",
+      "country":"belarus"
+    },{
+                        "code":"mk",
+                        "country":"republic-of-macedonia"
+                      }];
+
+    addLanguageFamily(romanceLanguages);
+  });
 
   document.onmouseup = document.onkeyup = function(e) {
     if (typeof e !== "undefined" && e.target.classList.contains("translation")) {

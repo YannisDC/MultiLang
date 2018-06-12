@@ -142,3 +142,21 @@ body {
 .requery-img {
   height: 20px;
 }
+
+.edit-text {
+  visibility: hidden;
+}
+
+.flex-families {
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.language-family {
+  height: 36px;
+  display: inline-block;
+  padding: 6px 10px;
+  margin: 12px 0 12px 10px;
+  border-radius: 6px;
+  background-color: var(--mark-line-color);
+}
