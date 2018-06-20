@@ -1,10 +1,16 @@
 :root {
-  --mark-adj-color: #CEF3FD;
-  --mark-obj-color: #FDD0B0;
-  --mark-subj-color: #FDCEF4;
-  --mark-verb-color: #BDFDB0;
+  --mark-noun-color: #CEF3FD;
+  --mark-verb-color: #FDD0B0;
+  --mark-adjective-color: #FDCEF4;
+  --mark-adverb-color: #BDFDB0;
+  --mark-pronoun-color: #FDFBCE;
+  --mark-determiner-color: #D3CEFD;
+  --mark-particle-color: #8AC3FA;
+  --mark-preposition-color: #FEA6A6;
+
   --mark-indicate-color: #9B9B9B;
   --mark-line-color: #EBEBEB;
+
 }
 
 html {
@@ -18,20 +24,36 @@ body {
 
 
 /* Markers */
-.adj, #top-adj {
-  background-color: var(--mark-adj-color);
-}
-
-.obj, #top-obj {
-  background-color: var(--mark-obj-color);
-}
-
-.subj, #top-subj {
-  background-color: var(--mark-subj-color);
+.noun, #top-noun {
+  background-color: var(--mark-noun-color);
 }
 
 .verb, #top-verb {
   background-color: var(--mark-verb-color);
+}
+
+.adjective, #top-adjective {
+  background-color: var(--mark-adjective-color);
+}
+
+.adverb, #top-adverb {
+  background-color: var(--mark-adverb-color);
+}
+
+.pronoun, #top-pronoun {
+  background-color: var(--mark-pronoun-color);
+}
+
+.determiner, #top-determiner {
+  background-color: var(--mark-determiner-color);
+}
+
+.particle, #top-particle {
+  background-color: var(--mark-particle-color);
+}
+
+.preposition, #top-preposition {
+  background-color: var(--mark-preposition-color);
 }
 
 .tooltip {

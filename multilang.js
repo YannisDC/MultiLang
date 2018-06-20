@@ -251,10 +251,14 @@ $( document ).ready(function() {
   }
 
   function removeAllClickListeners() {
-    $('#top-subj').off("click");
+    $('#top-noun').off("click");
     $('#top-verb').off("click");
-    $('#top-obj').off("click");
-    $('#top-adj').off("click");
+    $('#top-adjective').off("click");
+    $('#top-adverb').off("click");
+    $('#top-pronoun').off("click");
+    $('#top-determiner').off("click");
+    $('#top-particle').off("click");
+    $('#top-preposition').off("click");
   }
 
   function addLanguageFamily(familyLanguages) {
@@ -378,20 +382,36 @@ $( document ).ready(function() {
         if (text.length != 0) {
           $('.topology').show("slow");
 
-          $('#top-subj').on("click", function() {
-            mark(e, sentence, text, "subj");
+          $('#top-noun').on("click", function() {
+            mark(e, sentence, text, "noun");
           });
 
           $('#top-verb').on("click", function() {
             mark(e, sentence, text, "verb");
           });
 
-          $('#top-obj').on("click", function() {
-            mark(e, sentence, text, "obj");
+          $('#top-adjective').on("click", function() {
+            mark(e, sentence, text, "adjective");
           });
 
-          $('#top-adj').on("click", function() {
-            mark(e, sentence, text, "adj");
+          $('#top-adverb').on("click", function() {
+            mark(e, sentence, text, "adverb");
+          });
+
+          $('#top-pronoun').on("click", function() {
+            mark(e, sentence, text, "pronoun");
+          });
+
+          $('#top-determiner').on("click", function() {
+            mark(e, sentence, text, "determiner");
+          });
+
+          $('#top-particle').on("click", function() {
+            mark(e, sentence, text, "particle");
+          });
+
+          $('#top-preposition').on("click", function() {
+            mark(e, sentence, text, "preposition");
           });
         }
     }
