@@ -69,7 +69,7 @@ $( document ).ready(function() {
                       "country":"republic-of-poland"
                     },{
                       "code":"cs",
-                      "country":"czech"
+                      "country":"czech-republic"
                     },{
                       "code":"uk",
                       "country":"ukraine"
@@ -99,7 +99,7 @@ $( document ).ready(function() {
                       "country":"finland"
                     }];
 
-
+  var languagesToAdd = [];
 
   $('#add-option').click(function() {
     $(".select").toggle();
@@ -133,7 +133,7 @@ $( document ).ready(function() {
   }
 
   function addLanguageOption(language) {
-    var option = '<li class="nav-item"><div id="lang-'+ language["code"] +'" class="nav-link active"><img src="./img/country-flags/png/'+ language["country"] +'.png" style="height: 20px;" alt=""><span></span></div></li>';
+    var option = '<li class="nav-item language-item"><div id="lang-'+ language["code"] +'" class="nav-link active"><img src="./img/country-flags/png/'+ language["country"] +'.png" style="height: 20px;" alt=""><span></span></div></li>';
     $(option).insertBefore( $('#add-option').parent() );
 
     $('#lang-'+language["code"]).mouseenter( function(){$(this).find("span").append("<br>"+language["code"])} ).mouseleave( function(){$(this).find("span").html("")} );
@@ -257,10 +257,20 @@ $( document ).ready(function() {
     $('#top-adj').off("click");
   }
 
-  function addLanguageFamily(languages) {
-    for (var i = 0; i < languages.length; i++) {
-      addLanguageOption(languages[i]);
-      $('#option-'+languages[i]["code"]).remove();
+  function addLanguageFamily(familyLanguages) {
+    removePreviousLanguages()
+    languagesToAdd = familyLanguages;
+    for (var i = 0; i < languagesToAdd.length; i++) {
+      addLanguageOption(languagesToAdd[i]);
+      $('#option-'+languagesToAdd[i]["code"]).remove();
+    }
+  }
+
+  function removePreviousLanguages() {
+    $(".language-row").remove();
+    $("li.language-item").remove();
+    for (var i = 0; i < languagesToAdd.length; i++) {
+      addSelectable(languagesToAdd[i])
     }
   }
 
@@ -320,33 +330,33 @@ $( document ).ready(function() {
   $('#slavic').click(function() {
 
     var romanceLanguages = [ {
-      "code":"ru",
-      "country":"russia"
-    },{
-      "code":"pl",
-      "country":"republic-of-poland"
-    },{
-      "code":"cs",
-      "country":"czech"
-    },{
-      "code":"uk",
-      "country":"ukraine"
-    },{
-      "code":"bg",
-      "country":"bulgaria"
-    },{
-      "code":"hr",
-      "country":"croatia"
-    },{
-      "code":"sk",
-      "country":"slovakia"
-    },{
-      "code":"sl",
-      "country":"slovenia"
-    },{
-      "code":"be",
-      "country":"belarus"
-    },{
+                        "code":"ru",
+                        "country":"russia"
+                      },{
+                        "code":"pl",
+                        "country":"republic-of-poland"
+                      },{
+                        "code":"cs",
+                        "country":"czech-republic"
+                      },{
+                        "code":"uk",
+                        "country":"ukraine"
+                      },{
+                        "code":"bg",
+                        "country":"bulgaria"
+                      },{
+                        "code":"hr",
+                        "country":"croatia"
+                      },{
+                        "code":"sk",
+                        "country":"slovakia"
+                      },{
+                        "code":"sl",
+                        "country":"slovenia"
+                      },{
+                        "code":"be",
+                        "country":"belarus"
+                      },{
                         "code":"mk",
                         "country":"republic-of-macedonia"
                       }];
