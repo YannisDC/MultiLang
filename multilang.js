@@ -274,8 +274,12 @@ $( document ).ready(function() {
     }
   }
 
-  $('#romance').click(function() {
+  $('#reset').click(function() {
+    var noLanguages = [];
+    addLanguageFamily(noLanguages);
+  });
 
+  $('#romance').click(function() {
     var romanceLanguages = [ {
                         "code":"pt",
                         "country":"portugal"
@@ -295,12 +299,10 @@ $( document ).ready(function() {
                         "code":"ca",
                         "country":"catalonia"
                       }];
-
     addLanguageFamily(romanceLanguages);
   });
 
   $('#germanic').click(function() {
-
     var romanceLanguages = [ {
                         "code":"nl",
                         "country": "belgium"
@@ -323,12 +325,10 @@ $( document ).ready(function() {
                         "code":"en",
                         "country":"united-kingdom"
                       }];
-
     addLanguageFamily(romanceLanguages);
   });
 
   $('#slavic').click(function() {
-
     var romanceLanguages = [ {
                         "code":"ru",
                         "country":"russia"
@@ -360,7 +360,6 @@ $( document ).ready(function() {
                         "code":"mk",
                         "country":"republic-of-macedonia"
                       }];
-
     addLanguageFamily(romanceLanguages);
   });
 
