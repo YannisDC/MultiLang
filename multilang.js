@@ -244,10 +244,14 @@ $( document ).ready(function() {
   }
 
   function addAllTooltips() {
-    $('.subj').tooltip({title: "Subject"});
+    $('.noun').tooltip({title: "Noun"});
     $('.verb').tooltip({title: "Verb"});
-    $('.obj').tooltip({title: "Object"});
-    $('.adj').tooltip({title: "Adjective"});
+    $('.adjective').tooltip({title: "Adjective"});
+    $('.adverb').tooltip({title: "Adverb"});
+    $('.pronoun').tooltip({title: "Pronoun"});
+    $('.determiner').tooltip({title: "Determiner"});
+    $('.particle').tooltip({title: "Particle"});
+    $('.preposition').tooltip({title: "Preposition"});
   }
 
   function removeAllClickListeners() {
